@@ -19,6 +19,10 @@ const winningMessageElement = document.getElementById("winningMessage");
 
 const cellElements = document.querySelectorAll("[data-cell");
 
+const restartButton = document.getElementById("restartButton");
+restartButton.addEventListener("click", () => {
+  location.reload(true);
+});
 let circleTurn;
 
 cellElements.forEach((cell) => {
