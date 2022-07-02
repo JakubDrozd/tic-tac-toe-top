@@ -24,10 +24,19 @@ body {
   grid-template-columns: repeat(3, auto);
 }
 
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .cell:first-child,
@@ -52,4 +61,28 @@ body {
 .cell:nth-child(6),
 .cell:nth-child(9) {
   border-right: 0;
+}
+
+.cell.x::before {
+  content: "❌";
+  font-size: calc(var(--cell-size) * 0.7);
+}
+
+.cell.circle::before,
+.cell.circle::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: black;
+}
+
+.cell.circle::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
 }
