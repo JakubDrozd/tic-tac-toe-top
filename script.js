@@ -15,6 +15,8 @@ const winningMessageTextElement = document.querySelector(
   "[data-winning-message-text]"
 );
 
+const winningMessageElement = document.getElementById("winningMessage");
+
 const cellElements = document.querySelectorAll("[data-cell");
 
 let circleTurn;
@@ -36,10 +38,9 @@ function handleClick(e) {
 function endGame(draw) {
   if (draw) {
   } else {
-    winningMessageTextElement.innerText = `${
-      circleTurn ? "O's" : "X's"
-    } Wins! `;
+    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
   }
+  winningMessageElement.classList.add("show");
 }
 
 function placeMark(cell, currentClass) {
