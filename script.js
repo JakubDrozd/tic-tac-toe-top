@@ -15,24 +15,14 @@ const p1 = createPlayer("Jakub");
 
 const p2 = createPlayer("Piotr");
 
-class Gameboard {
-  constructor() {
-    this.space = [
-      [0, 0, 0],
-      [0, 0, 0],
-      [0, 0, 0],
-    ];
-  }
-  getSpace() {
-    console.log(this.space);
-  }
-  newGame() {
-    this.space = [
-      [0, 0, 0],
-      [0, 0, 0],
-      [0, 0, 0],
-    ];
-  }
-}
-
-const newBoard = new Gameboard();
+const gameBoard = (function () {
+  const space = ["O", "O", "O", "O", "O", "O", "O", "O", "O"];
+  const render = function (content) {
+    const board = document.querySelector(".board");
+    const cell = document.createElement("div");
+    board.appendChild(cell);
+    cell.textContent = content;
+  };
+  const renderSpace = space.forEach(render);
+  return { renderSpace };
+})();
