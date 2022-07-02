@@ -13,11 +13,17 @@ const p1 = createPlayer("Jakub");
 
 const p2 = createPlayer("Piotr");
 
-const gameBoard = (() => {
-  const newSpace = [
+const gameBoard = {
+  space: [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0],
-  ];
-  return { newSpace };
-})();
+  ],
+  newSpace() {
+    gameBoard.space = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ];
+  },
+};
